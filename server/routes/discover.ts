@@ -70,6 +70,7 @@ const QueryFilterOptions = z.object({
   firstAirDateLte: z.coerce.string().optional(),
   studio: z.coerce.string().optional(),
   genre: z.coerce.string().optional(),
+  excludeGenres: z.coerce.string().optional(),
   keywords: z.coerce.string().optional(),
   excludeKeywords: z.coerce.string().optional(),
   language: z.coerce.string().optional(),
@@ -116,6 +117,7 @@ discoverRoutes.get('/movies', async (req, res, next) => {
       language: req.locale ?? query.language,
       originalLanguage: query.language,
       genre: query.genre,
+      excludeGenres: query.excludeGenres,
       studio: query.studio,
       primaryReleaseDateLte: query.primaryReleaseDateLte
         ? new Date(query.primaryReleaseDateLte).toISOString().split('T')[0]
@@ -427,6 +429,7 @@ discoverRoutes.get('/tv', async (req, res, next) => {
       sortBy: query.sortBy,
       language: req.locale ?? query.language,
       genre: query.genre,
+      excludeGenres: query.excludeGenres,
       network: query.network ? Number(query.network) : undefined,
       firstAirDateLte: query.firstAirDateLte
         ? new Date(query.firstAirDateLte).toISOString().split('T')[0]

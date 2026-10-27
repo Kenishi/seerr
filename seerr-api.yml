@@ -5662,6 +5662,12 @@ paths:
             type: string
             example: 18
         - in: query
+          name: excludeGenres
+          schema:
+            type: string
+            example: 16,99
+          description: Comma-separated list of genre IDs to exclude from results
+        - in: query
           name: studio
           schema:
             type: number
@@ -5987,6 +5993,12 @@ paths:
           schema:
             type: string
             example: 18
+        - in: query
+          name: excludeGenres
+          schema:
+            type: string
+            example: 16,99
+          description: Comma-separated list of genre IDs to exclude from results
         - in: query
           name: network
           schema:
